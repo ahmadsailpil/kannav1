@@ -28,22 +28,35 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
   if (!isY && !isLimit) await conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `
 *${htki} YOUTUBE ${htka}*
 
-*${htjava} Title:* ${title}
-*${htjava} Type:* mp3
-*${htjava} Filesize:* ${audio.fileSizeH}
-
-*L O A D I N G. . .*
-`.trim(), m)
-  if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
-*${htki} YOUTUBE ${htka}*
-
-*${htjava} Title:* ${title}
-*${htjava} Type:* mp3
-*${htjava} Filesize:* ${audio.fileSizeH}
-
-*L O A D I N G. . .*
+let limit = 30
+let fetch = require('node-fetch')
+const { servers, yta } = require('../lib/y2mate')
+let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
+  if (!args || !args[0]) throw `contoh:\n${usedPrefix + command} https://www.youtube.com/watch?v=yxDdj_G9uRY`
+  let chat = global.db.data.chats[m.chat]
+  let server = (args[1] || servers[0]).toLowerCase()
+  let { dl_link, thumb, title, filesize, filesizeF } = await yta(args[0], servers.includes(server) ? server : servers[0])
+  let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
+  m.reply(isLimit ? `Ukuran File: ${filesizeF}\nUkuran file diatas ${limit} MB, download sendiri: ${dl_link}` : global.wait)
+  if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp3', `
+â”â”‰â”â”â”â”â”â”â”â”â”â”â”â
+â”† *YOUTUBE MP3*
+â”œâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆâ”ˆ
+â”†â€¢ *Judul:* ${title}
+â”‚â€¢ *Type:* MP3
+â”†â€¢ *ðŸ“¥ Ukuran File:* ${filesizeF}
+â””â
 `.trim(), m, null, {
-    asDocument: chat.useDocument
+    asDocument: chat.useDocument, mimetype: 'audio/mp4', ptt: true, contextInfo: {
+        externalAdReply: {
+            title: 'â–¶ï¸Ž â”â”â”â”â”â”â”â€¢â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ ', 
+            body: 'Now Playing...',
+            description: 'Now Playing...',
+            mediaType: 2,
+          thumbnail: await (await fetch(thumb)).buffer(),
+         mediaUrl: `https://youtube.com/watch?v=uIedYGN3NQQ`
+        }
+     }
   })
 }
 handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` <url> <without message>`)
@@ -51,7 +64,7 @@ handler.tags = ['downloader']
 handler.command = /^yt(a|mp3)$/i
 
 handler.exp = 0
-handler.register = true
+handler.register = false
 handler.limit = true
 
 export default handler
