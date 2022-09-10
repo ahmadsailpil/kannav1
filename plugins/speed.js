@@ -153,7 +153,6 @@ handler.help = ['ping', 'speed']
 handler.tags = ['info', 'tools']
 
 handler.command = /^(ping|speed|info)$/i
-handler.owner = true
 export default handler
 
 const more = String.fromCharCode(8206)
