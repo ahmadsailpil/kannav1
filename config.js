@@ -45,8 +45,8 @@ let wibh = moment.tz('Asia/Jakarta').format('HH')
 
 // Wajib diisi ya kak!, kalo ga punya biarin aja, biar ada creditsnya :v
 global.sig = 'https://www.instagram.com/kontol_elite'
-global.sgh = 'https://github.com/Jikarinka'
-global.sgc = 'https://chat.whatsapp.com/FF1Bd1U0FHu42rfz6uplbn'
+global.sgh = 'https://github.com/Kannachan'
+global.sgc = 'https://chat.whatsapp.com/HRpAYvnyYXALAGFfkHTPjw'
 global.sdc = " "
 global.snh = 'https://nhentai.net/g/365296/'
 
@@ -62,15 +62,15 @@ global.psaweria = '-'
 global.nomorbot = '6281336990781'
 global.nomorown = '6285334930628'
 global.namebot = 'Kanna BOT'
-global.nameown = 'ᴠᴀɴᴇꜱꜱᴀ-ᴅᴇꜱᴜ'
+global.nameown = 'zaky'
 
 
 /*============== STAFF ==============*/
 global.owner = [
-  ['6285334930628'],
-  ['6285334930628'],
+  ['6282289304381'],
+  ['6282289304381'],
   ['18126338970'],
-  ['6285334930628', 'ᴠᴀɴᴇꜱꜱᴀ-ᴅᴇꜱᴜ', true]
+  ['6282289304381', 'Zaky', true]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 global.mods = [] // Want some help?
@@ -99,16 +99,16 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.xteam.xyz': 'APIKEY',
-  'https://anabotofc.herokuapp.com/': 'APIKEY',
-  'https://api.lolhuman.xyz': 'APIKEY',
+  'https://api.xteam.xyz': 'cristian9407',
+  'https://anabotofc.herokuapp.com/': 'AnaBot',
+  'https://api.lolhuman.xyz': 'rey2k21',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.me': 'apivinz',
   'https://pencarikode.xyz': 'pais',
-  'https://melcanz.com': 'APIKEY',
+  'https://melcanz.com': 'wEDTUsWj',
   'https://neoxr-api.herokuapp.com': 'yntkts',
   'https://server-api-rey.herokuapp.com': 'apirey',
-  'https://botstyle-api.herokuapp.com': 'APIKEY',
+  'https://botstyle-api.herokuapp.com': 'Eyar749L',
   'https://hardianto.xyz': 'hardianto',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll'
 }
@@ -160,9 +160,9 @@ global.dmenuf = '┗––––––––––✦' //footer
 global.dashmenu = '┅━━━━━═┅═❏ *DASHBOARD* ❏═┅═━━━━━┅'
 global.cmenut = '❏––––––『'                       //top
 global.cmenuh = '』––––––'                        //header
-global.cmenub = '┊✦ '                            //body
+global.cmenub = '┊⌲ '                            //body
 global.cmenuf = '┗━═┅═━––––––๑\n'                //footer
-global.cmenua = '\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     ' //after
+global.cmenua = '「▰▰▰▱▱▱▱▱▱▱」Spam...     ' //after
 global.pmenus = '┊'                              //pembatas menu selector
 
 global.htki = '––––––『' // Hiasan Titile (KIRI)
