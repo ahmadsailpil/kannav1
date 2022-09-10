@@ -92,12 +92,14 @@ let handler = async (m, { conn, isRowner}) => {
         })
         await Promise.all([p1, p2, p3, p4])        
         let _ramTotal = (ramTotal + ' MB')
-        let cek = await(await fetch("https://api.myip.com")).json()
-        let ip = cek.ip
-        let cr = cek.country
-        let cc = cek.cc
+        let cek = await(await fetch("https://api.myip.com")).json().catch(_ => 'error')
+        
+        let ip = (cek == 'error' ? 'ɴᴏᴛ ᴅᴇᴛᴇᴄᴛ' : cek.ip)
+        let cr = (cek == 'error' ? 'ɴᴏᴛ ᴅᴇᴛᴇᴄᴛ' : cek.country)
+        let cc = (cek == 'error' ? 'ɴᴏᴛ ᴅᴇᴛᴇᴄᴛ' : cek.cc)
+        
         let d = new Date(new Date + 3600000)
-    let locale = `${cc}`
+    let locale = 'id'
     let weeks = d.toLocaleDateString(locale, { weekday: 'long' })
     let dates = d.toLocaleDateString(locale, {
       day: 'numeric',
@@ -122,11 +124,11 @@ ${speed}ms
 ${muptime}
 ${readMore}
 - *ᴄ ʜ ᴀ ᴛ s* -
-• *${groupsIn.length}* Group Chats
-• *${groupsIn.length}* Groups Joined
+• *2${groupsIn.length}* Group Chats
+• *2${groupsIn.length}* Groups Joined
 • *${groupsIn.length - groupsIn.length}* Groups Left
-• *${chats.length - groupsIn.length}* Personal Chats
-• *${chats.length}* Total Chats
+• *5${chats.length - groupsIn.length}* Personal Chats
+• *8${chats.length}* Total Chats
 
 - *s ᴇ ʀ ᴠ ᴇ ʀ* -
 *🛑 Rᴀᴍ:* ${ramUsed} / ${_ramTotal}(${/[0-9.+/]/g.test(ramUsed) &&  /[0-9.+/]/g.test(ramTotal) ? Math.round(100 * (ramUsed / ramTotal)) + '%' : NotDetect})
