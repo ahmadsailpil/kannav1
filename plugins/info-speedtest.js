@@ -1,8 +1,7 @@
-import cp from 'child_process'
-import { promisify } from 'util'
+let cp = require('child_process')
+let { promisify } = require('util')
 let exec = promisify(cp.exec).bind(cp)
 let handler = async (m) => {
-	await conn.reply(m.chat, wait, m)
     let o
     try {
         o = await exec('python speed.py')
@@ -14,8 +13,8 @@ let handler = async (m) => {
         if (stderr.trim()) m.reply(stderr)
     }
 }
-handler.help = ['testspeed']
+handler.help = ['speedtest,tes']
 handler.tags = ['info']
-handler.command = /^(testspeed)$/i
+handler.command = /^(speedtest)$/i
 
-export default handler
+module.exports = handler
